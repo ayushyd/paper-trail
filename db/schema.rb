@@ -11,13 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
-  create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "authors_books_joint_tables", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "authors_books_joint_tables", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
@@ -26,13 +29,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
     t.index ["book_id"], name: "index_authors_books_joint_tables_on_book_id"
   end
 
-  create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "books", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
     t.index ["user_id"], name: "index_countries_on_user_id"
   end
 
-  create_table "jwt_denylists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "jwt_denylists", force: :cascade do |t|
     t.string "jti"
     t.datetime "exp"
     t.datetime "created_at", null: false
@@ -48,7 +51,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
     t.index ["jti"], name: "index_jwt_denylists_on_jti"
   end
 
-  create_table "states", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "states", force: :cascade do |t|
     t.string "name"
     t.bigint "country_id", null: false
     t.datetime "created_at", null: false
@@ -56,7 +59,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -69,13 +72,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_28_142120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "versions", force: :cascade do |t|
     t.string "whodunnit"
     t.datetime "created_at"
     t.bigint "item_id", null: false
     t.string "item_type", limit: 191, null: false
     t.string "event", null: false
-    t.text "object", size: :long
+    t.text "object"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
