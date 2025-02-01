@@ -1,0 +1,18 @@
+current directory: /home/ayush/paper-trail/vendor/bundle/ruby/3.3.0/gems/stringio-3.1.2/ext/stringio
+/usr/share/rvm/rubies/ruby-3.3.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/ayush/paper-trail/vendor/bundle/ruby/3.3.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20250129-3605219-609ubg sitelibdir\=./.gem.20250129-3605219-609ubg clean
+
+current directory: /home/ayush/paper-trail/vendor/bundle/ruby/3.3.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20250129-3605219-609ubg sitelibdir\=./.gem.20250129-3605219-609ubg
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /home/ayush/paper-trail/vendor/bundle/ruby/3.3.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20250129-3605219-609ubg sitelibdir\=./.gem.20250129-3605219-609ubg install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20250129-3605219-609ubg
+
+current directory: /home/ayush/paper-trail/vendor/bundle/ruby/3.3.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20250129-3605219-609ubg sitelibdir\=./.gem.20250129-3605219-609ubg clean
